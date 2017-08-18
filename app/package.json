@@ -1,0 +1,28 @@
+{
+  "name": "canetis-player",
+  "productName": "Canetis player",
+  "description": "Cross-platform Radio player",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Dezodev/canetis-player",
+  "author": {
+      "name": "Dezodev",
+      "email": "dezodev@gmail.com",
+      "url": "https://dezodev.tk/"
+  },
+  "license": "MIT",
+  "main": "main.js",
+  "electronVersion": "1.0.0",
+  "dependencies": {
+    "devtron": "^1",
+    "electron-debug": "^1",
+    "electron-is-dev": "^0.1",
+    "electron-window-state": "^3",
+    "lodash": "^4"
+  },
+  "config": {
+    "url": "index.html",
+    "update": {
+      "url": false
+    }
+  }
+}
