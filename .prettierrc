@@ -9,7 +9,7 @@
     "semi": false,
     "singleQuote": true,
     "plugins": ["@trivago/prettier-plugin-sort-imports"],
-    "importOrder": ["^[./]"],
+    "importOrder": ["^@/", "^@assets/", "^@components/", "^@utils/", "^[./]"],
     "importOrderSeparation": true,
     "importOrderSortSpecifiers": true
 }
