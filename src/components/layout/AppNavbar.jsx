@@ -9,24 +9,56 @@ import {
     rem,
     useMantineColorScheme,
 } from '@mantine/core'
-import { mdiAutoFix, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js'
+import {
+    mdiAutoFix,
+    mdiBookOpenVariant,
+    mdiMagnify,
+    mdiStarOutline,
+    mdiWeatherNight,
+    mdiWeatherSunny,
+} from '@mdi/js'
 import Icon from '@mdi/react'
 import React from 'react'
+import { Link, useNavigate, useResolvedPath } from 'react-router-dom'
 
 import { APP_NAME } from '@utils/constants'
 
 const MenuLinks = [
     {
         icon: mdiAutoFix,
+        key: 'discover',
         label: 'Découvrir',
-        link: '#',
+        link: '/',
+    },
+    {
+        icon: mdiBookOpenVariant,
+        key: 'explorer',
+        label: 'Explorer',
+        link: '/explorer',
+    },
+    {
+        icon: mdiMagnify,
+        key: 'search',
+        label: 'Rechercher',
+        link: '/search',
+    },
+    {
+        icon: mdiStarOutline,
+        key: 'favorites',
+        label: 'Favoris',
+        link: '/favorites',
     },
 ]
 
 const AppNavbar = () => {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+    const { pathname } = useResolvedPath()
 
     const [activeLink, setActiveLink] = React.useState(0)
+
+    React.useEffect(() => {
+        console.log('-- AppNavbar >> pathname', pathname)
+    }, [pathname])
 
     return (
         <Navbar p="xs" width={{ base: 300 }}>
@@ -59,11 +91,12 @@ const AppNavbar = () => {
                 <Box py="md">
                     {MenuLinks.map((link, index) => (
                         <NavLink
-                            key={link.label}
-                            active={false}
+                            component={Link}
+                            to={link.link}
+                            key={link.key}
                             label={link.label}
                             icon={link.icon && <Icon path={link.icon} size={0.7} />}
-                            active={activeLink === index}
+                            active={pathname === link.link}
                         />
                     ))}
                 </Box>
