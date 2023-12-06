@@ -2,8 +2,8 @@ import { MantineProvider, createTheme } from '@mantine/core'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import App from './App'
-import './assets/css/styles.css'
+import App from '@/App'
+import '@/assets/css/styles.css'
 
 const theme = createTheme({
     /** Your theme override here */

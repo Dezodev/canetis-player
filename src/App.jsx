@@ -2,7 +2,7 @@ import { AppShell, Burger } from '@mantine/core'
 import { useMantineColorScheme } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 
-import AppNavbar from './components/layout/AppNavbar'
+import AppNavbar from '@/components/layout/AppNavbar'
 
 const App = () => {
     const [opened, { toggle }] = useDisclosure()
