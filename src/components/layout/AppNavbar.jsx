@@ -2,6 +2,7 @@ import { ActionIcon, AppShell, Box, Group, NavLink, rem, Text, useMantineColorSc
 import { mdiAutoFix, mdiBookOpenVariant, mdiMagnify, mdiStarOutline, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js'
 import Icon from '@mdi/react'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const MenuLinks = [
     {
@@ -32,6 +33,7 @@ const MenuLinks = [
 
 const AppNavbar = () => {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+    const navigate = useNavigate()
 
     return (
         <AppShell.Navbar p="md">
@@ -61,12 +63,12 @@ const AppNavbar = () => {
             <Box mt={30}>
                 {MenuLinks.map((link, index) => (
                     <NavLink
-                        // component={Link}
                         to={link.link}
                         key={link.key}
                         label={link.label}
                         leftSection={link.icon && <Icon path={link.icon} size={0.7} />}
                         // active={pathname === link.link}
+                        onClick={() => navigate(link.link)}
                     />
                 ))}
             </Box>

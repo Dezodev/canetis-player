@@ -1,8 +1,13 @@
+import AppNavbar from '@/components/layout/AppNavbar'
 import { AppShell, Burger } from '@mantine/core'
 import { useMantineColorScheme } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
-import AppNavbar from '@/components/layout/AppNavbar'
+import Discover from './pages/discover'
+import Explorer from './pages/explorer'
+import Favorites from './pages/favorites'
+import Search from './pages/search'
 
 const App = () => {
     const [opened, { toggle }] = useDisclosure()
@@ -23,11 +28,18 @@ const App = () => {
                 },
             })}
         >
-            <AppNavbar />
+            <HashRouter basename="/">
+                <AppNavbar />
 
-            <AppShell.Main>
-                <h1>Welcome</h1>
-            </AppShell.Main>
+                <AppShell.Main>
+                    <Routes>
+                        <Route path="/" element={<Discover />} />
+                        <Route path="/explorer" element={<Explorer />} />
+                        <Route path="/search" element={<Search />} />
+                        <Route path="/favorites" element={<Favorites />} />
+                    </Routes>
+                </AppShell.Main>
+            </HashRouter>
         </AppShell>
     )
 }
